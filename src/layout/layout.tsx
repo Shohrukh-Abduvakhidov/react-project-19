@@ -14,7 +14,7 @@ import { NavLink, Outlet, useLocation } from 'react-router'
 import { motion } from 'framer-motion'
 import { NotificationModal } from '../pages/messages/messages'
 import images from "$/images.png"
-import { Button } from '../components/ui/button'
+
 import MoreModal from '../pages/moreModal/moreModal'
 
 
@@ -249,7 +249,7 @@ const Layout: React.FC = () => {
 						<div className='flex flex-col gap-[20px] justify-center items-center'>
 							<img src={images} alt="" />
 							<h1 className='text-[#fff] font-bold text-[20px]'>Перетащите сюда фото и видео</h1>
-							<Button className='bg-blue-400 curpo'>Выбрать на компютере</Button>
+							<button className='bg-blue-400 cursor-pointer px-[10px] py-[5px] rounded-md text-[#fff] font-bold'>Выбрать на компютере</button>
 						</div>
 					</div>
 				</div>
