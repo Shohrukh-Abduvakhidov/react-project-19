@@ -9,9 +9,13 @@ import {
 	User,
 	MoreHorizontal,
 } from 'lucide-react'
-import { JSX, useState } from 'react'
-import { NavLink, Outlet } from 'react-router'
+import { JSX, useEffect, useState } from 'react'
+import { NavLink, Outlet, useLocation } from 'react-router'
 import { motion } from 'framer-motion'
+import { NotificationModal } from '../pages/messages/messages'
+import images from "$/images.png"
+import { Button } from '../components/ui/button'
+import MoreModal from '../pages/moreModal/moreModal'
 
 
 const searchVariants = {
@@ -33,7 +37,7 @@ type SidebarItemProps = {
 }
 
 const routes = {
-	Home: '/',
+	Home: '/layout',
 	Search: 'search',
 	Explore: 'explore',
 	Reels: 'reels',
@@ -47,6 +51,17 @@ const routes = {
 
 const Layout: React.FC = () => {
 	const [open, setOpen] = useState<boolean>(false) 
+	const [isOpen,setIsOpen] = useState<boolean>(false)
+	const [openK,setOpenK] = useState<boolean>(false)
+	const [openM,setOpenM] = useState<boolean>(false)
+	const location = useLocation()
+
+	useEffect(() => {
+		setOpen(false);
+		setIsOpen(false);
+		setOpenK(false);
+		setOpenM(false);
+	},[location])
 
 
 	const recentSearches = [
@@ -76,6 +91,7 @@ const Layout: React.FC = () => {
 			avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwEk896s8cu70DkwnoV3uMXJOycpClUS7Hmg&s',
 		},
 	]
+
 
 	const SearchModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
 		isOpen,
@@ -153,10 +169,52 @@ const Layout: React.FC = () => {
 								<div
 									key={key}
 									className='flex items-center space-x-3 p-[5px] rounded-lg cursor-pointer hover:bg-gray-800'
-									onClick={() => setOpen(true)} // Открытие модального окна при клике
+									onClick={() => setOpen(!open)} 
 								>
 									<span className='w-6 h-6 flex items-center justify-center'>
 										<Search />
+									</span>
+									<span className='text-lg'>{key}</span>
+								</div>
+							)
+						}
+						if (key === 'Notifications') {
+							return (
+								<div
+									key={key}
+									className='flex items-center space-x-3 p-[5px] rounded-lg cursor-pointer hover:bg-gray-800'
+									onClick={() => setIsOpen(!isOpen)} 
+								>
+									<span className='w-6 h-6 flex items-center justify-center'>
+										<Heart />
+									</span>
+									<span className='text-lg'>{key}</span>
+								</div>
+							)
+						}
+						if (key === 'Create') {
+							return (
+								<div
+									key={key}
+									className='flex items-center space-x-3 p-[5px] rounded-lg cursor-pointer hover:bg-gray-800'
+									onClick={() => setOpenK(!openK)} 
+								>
+									<span className='w-6 h-6 flex items-center justify-center'>
+										<PlusSquare />
+									</span>
+									<span className='text-lg'>{key}</span>
+								</div>
+							)
+						}
+						if (key === 'More') {
+							return (
+								<div
+									key={key}
+									className='flex items-center space-x-3 p-[5px] rounded-lg cursor-pointer hover:bg-gray-800'
+									onClick={() => setOpenM(!openM)} 
+								>
+									<span className='w-6 h-6 flex items-center justify-center'>
+										<MoreHorizontal />
 									</span>
 									<span className='text-lg'>{key}</span>
 								</div>
@@ -178,12 +236,31 @@ const Layout: React.FC = () => {
 			{open && (
 				<SearchModal isOpen={open} onClose={() => setOpen(false)} />
 			)}{' '}
-			{/* Модальное окно с состоянием open */}
+			{isOpen && (
+				<NotificationModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+			)}{' '}
+			{openM && (
+				<MoreModal openM={openM} setOpenM={() => setOpenM(false)} />
+			)}{' '}
+			{openK && (
+				<div className='flex fixed justify-center z-[1] left-[10%] w-[70%] m-auto items-center inset-0'>
+					<div className='w-[350px] rounded-2xl	top-0 bottom-0 left-0 ri bg-[#262626] h-[400px]'>
+						<div className='bg-black h-[50px] rounded-t-2xl text-center text-[#fff] flex items-center justify-center font-bold'>Создание ПУБЛИКАЦИИ</div>
+						<div className='flex flex-col gap-[20px] justify-center items-center'>
+							<img src={images} alt="" />
+							<h1 className='text-[#fff] font-bold text-[20px]'>Перетащите сюда фото и видео</h1>
+							<Button className='bg-blue-400 curpo'>Выбрать на компютере</Button>
+						</div>
+					</div>
+				</div>
+			)}
+
+			
 		</div>
 	)
 }
 
-// Компонент SidebarItem для каждого элемента боковой панели
+
 const SidebarItem: React.FC<SidebarItemProps> = ({
 	icon,
 	text,
@@ -200,7 +277,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 					isActive ? 'bg-gray-700' : 'hover:bg-gray-800'
 				}`
 			}
-			onClick={onClick} // Передаем обработчик onClick
+			onClick={onClick} 
 		>
 			{avatar ? (
 				<img src={avatar} alt='Profile' className='w-6 h-6 rounded-full' />
@@ -220,7 +297,6 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	)
 }
 
-// Функция для получения иконки в зависимости от маршрута
 const getIcon = (key: RouteKeys): JSX.Element => {
 	switch (key) {
 		case 'Home':

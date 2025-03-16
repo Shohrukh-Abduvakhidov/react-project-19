@@ -5,21 +5,21 @@ const ReelPage: React.FC = () => {
 	return (
 		<div className='bg-black min-h-screen fixed z-[-1] bottom-0 top-0 left-[30%] right-0 flex justify-center items-center p-4'>
 			<div className='relative bg-black h-[99vh] rounded-lg overflow-hidden max-w-sm w-full'>
-				{/* Картинка вместо видео */}
+				
 				<img
 					src={reelImage}
 					alt='Reel'
 					className='w-full h-full'
 				/>
 
-				{/* Текст поверх */}
+				
 				<div className='absolute top-4 left-1/2 transform -translate-x-1/2 text-white text-lg font-bold'>
 					Trallalero Trallala
 				</div>
 
-				{/* Контейнер с инфо */}
+				
 				<div className='absolute bottom-4 left-4 text-white'>
-					{/* Профиль */}
+					
 					<div className='flex items-center gap-2'>
 						<img
 							src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdBWB76EZKUgHdARYa-XNyIzoiJiUiyKiFrg&s'
@@ -32,18 +32,18 @@ const ReelPage: React.FC = () => {
 						</div>
 					</div>
 
-					{/* Подпись */}
+					
 					<p className='text-sm mt-2'>
 						Einzige Reihenfolge ... <span className='text-gray-400'>ещё</span>
 					</p>
 
-					{/* Музыка */}
+					
 					<p className='text-xs mt-1 text-gray-400'>
 						🎵 аудио lennard_aso_jo - Ориг
 					</p>
 				</div>
 
-				{/* Иконки справа */}
+				
 				<div className='absolute bottom-4 right-4 flex flex-col gap-4 text-white'>
 					<div className='text-center'>
 						<Heart className='text-center ml-[10px]'/> <p className='text-xs'>178 тыс.</p>
