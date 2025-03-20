@@ -3,11 +3,11 @@ import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal } from "lucide-rea
 
 const HomePage: React.FC = () => {
   return (
-    <div className="bg-black lg:ml-[250px] pt-[100px] pb-[50px] text-white min-h-screen p-4">
+    <div className="bg-black lg:ml-[250px] pt-[100px] lg:pt-[20px] lg:pb-[20px] pb-[50px] text-white min-h-screen p-4">
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-[550px]">
 
-          {/* Stories */}
+          
           <div style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} className="flex space-x-3 scrollbar-none overflow-x-auto p-2">
             {[...Array(8)].map((_, index) => (
               <div className='' key={index}>
@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
             ))}
           </div>
 
-          {/* Post */}
+          
           <div className="bg-black rounded-lg p-4 my-4">
             <div className="flex items-center space-x-2 justify-between">
               <div className='flex items-center gap-[10px]'>
@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Recommendations */}
+        
         <div className='w-full lg:w-[400px] px-[10px]'>
           <div className="mt-4 lg:block hidden">
             <h3 className="text-lg font-bold">Рекомендации для вас</h3>

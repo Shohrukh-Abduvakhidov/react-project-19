@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProfilePage: React.FC = () => {
 	return (
-		<div className='max-w-4xl lg:ml-[300px] py-[100px] text-white mx-auto '>
+		<div className='max-w-4xl lg:ml-[300px] lg:py-[20px] py-[100px] text-white mx-auto '>
 			<div className='flex items-center space-x-6'>
 				<img
 					src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUUAoh1xM6GvmUsSr7HCy_6ITCRBnprtp_jw&s'

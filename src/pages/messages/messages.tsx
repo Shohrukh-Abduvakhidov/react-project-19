@@ -110,7 +110,7 @@ const MessagesPage = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className='flex h-screen lg:ml-[300px] py-[60px] bg-black text-white'>
+		<div className='flex h-screen lg:ml-[300px] lg:py-[20px] py-[60px] bg-black text-white'>
 			<div className='lg:w-1/3 w-full p-4 border-r border-gray-700'>
 				<h2 className='text-xl font-semibold mb-4'>Сообщения</h2>
 				<div className='h-[calc(100vh-100px)] overflow-y-auto'>
