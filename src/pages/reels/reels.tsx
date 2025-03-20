@@ -3,7 +3,7 @@ import reelImage from "$/reel-image.jpg"
 import { Heart, MessageCircle } from 'lucide-react'
 const ReelPage: React.FC = () => {
 	return (
-		<div className='bg-black min-h-screen fixed z-[-1] bottom-0 top-0 left-[30%] right-0 flex justify-center items-center p-4'>
+		<div className='bg-black  fixed z-[-1] bottom-0 top-0 py-[0px] mb-[50px] my-[50px] lg:left-[30%] right-0 flex justify-center items-center p-4'>
 			<div className='relative bg-black h-[99vh] rounded-lg overflow-hidden max-w-sm w-full'>
 				
 				<img
