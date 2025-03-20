@@ -7,6 +7,7 @@ import ProfilePage from '../pages/profile/profile';
 import Explore from '../pages/explore/explore';
 import RegistrationPage from '../pages/registration/registration';
 import LoginPage from '../pages/login/login';
+import MessageById from '../pages/messageById/messageById'
 
 const InstaRouter = () => {
   return (
@@ -16,6 +17,7 @@ const InstaRouter = () => {
           <Route index element={<HomePage />} />
           <Route path='reels' element={<ReelPage />} />
           <Route path='direct' element={<MessagesPage />} />
+          <Route path='direct/:id' element={<MessageById />} />
           <Route path='profile' element={<ProfilePage />} />
           <Route path='explore' element={<Explore />} />
         </Route>

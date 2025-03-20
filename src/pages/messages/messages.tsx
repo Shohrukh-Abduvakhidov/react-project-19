@@ -1,5 +1,6 @@
 import message from '$/message.png'
 import { useState } from 'react';
+import { Link } from 'react-router'
 
 const messages = [
 	{
@@ -115,6 +116,7 @@ const MessagesPage = () => {
 				<h2 className='text-xl font-semibold mb-4'>Сообщения</h2>
 				<div className='h-[calc(100vh-100px)] overflow-y-auto'>
 					{messages.map(msg => (
+						<Link to={`/layout/direct/${msg.id}`}>
 						<div
 							key={msg.id}
 							className='flex items-center p-2 hover:bg-gray-800 rounded-lg cursor-pointer'
@@ -129,6 +131,7 @@ const MessagesPage = () => {
 								<p className='text-sm text-gray-400'>{msg.lastMessage}</p>
 							</div>
 						</div>
+						</Link>
 					))}
 				</div>
 			</div>

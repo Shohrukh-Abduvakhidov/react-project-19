@@ -47,7 +47,7 @@ const ProfilePage: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			<div className='flex gap-[20px] py-[10px] items-center'>
+			<div className='flex gap-[20px] lg:hidden py-[10px] items-center'>
 				<button className='bg-gray-700 text-white px-2 py-1 rounded'>
 					Редактировать про...
 				</button>
